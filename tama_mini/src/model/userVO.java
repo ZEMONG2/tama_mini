@@ -3,9 +3,9 @@ package model;
 public class userVO {
 	private int num;
 	private String id;
-	private String passWord;
+	private int passWord;
 
-	public userVO(int num, String id, String passWord) {
+	public userVO(int num, String id, int passWord) {
 		super();
 		this.num = num;
 		this.id = id;
@@ -19,7 +19,7 @@ public class userVO {
 		return id;
 	}
 
-	public String getPassWord() {
+	public int getPassWord() {
 		return passWord;
 	}
 

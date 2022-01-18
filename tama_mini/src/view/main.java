@@ -20,7 +20,7 @@ public class main {
 				System.out.print("id : ");
 				String id = sc.next();
 				System.out.print("passWord : ");
-				String passWord = sc.next();
+				int passWord = sc.nextInt();
 				
 				boolean check = uDao.insertUser(id, passWord);
 				if (check == true) {
@@ -28,21 +28,20 @@ public class main {
 				} else {
 					System.out.println("sign up fail");
 				}
-			}else if(select == 2) {
-				System.out.println("insert user_info");
-				System.out.print("id : ");
-				String id = sc.next();
-				System.out.print("passWord : ");
-				String passWord = sc.next();
-				
-				
-				
-
-
-
-
-				break;
-
+			} else if (select == 2) {
+	            System.out.println("insert user_info");
+	            System.out.print("id : ");
+	            String id = sc.next();
+	            System.out.print("passWord : ");
+	            int passWord = sc.nextInt();
+	            	            
+	            boolean check = uDao.selectOneUser(id, passWord);
+	            
+	            if(check == true) {
+	               System.out.println("succes");
+	            }else {
+	               System.out.println("fail");
+	            }
 			}else if(select == 3) {
 				System.out.println("See you again!");
 				break;
@@ -51,9 +50,6 @@ public class main {
 				System.out.println("-----------------------------");				
 			}
 			
-		
-		
-		
 	}
 	}
 }

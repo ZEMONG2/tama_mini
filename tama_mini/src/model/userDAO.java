@@ -42,7 +42,7 @@ public class userDAO {
 		}
 	
 	}
-	public boolean insertUser(String id, String passWord) {
+	public boolean insertUser(String id, int passWord) {
 		
 		boolean check = false;
 
@@ -56,7 +56,7 @@ public class userDAO {
 
 			
 			pst.setString(1, id);
-			pst.setString(2, passWord);
+			pst.setInt(2, passWord);
 
 			
 			int cnt = pst.executeUpdate();
@@ -92,7 +92,7 @@ public class userDAO {
 			while (rs.next()) {
 				int num = rs.getInt(1); 
 				String id = rs.getString("id");
-				String passWord = rs.getString("passWord");
+				int passWord = rs.getInt("passWord");
 
 				al.add(new userVO(num, id, passWord));
 			}
@@ -108,7 +108,7 @@ public class userDAO {
 	}
 	
 	
-	public int login(String id, String passWord) {
+	/*public int login(String id, String passWord) {
 
 		try {
 
@@ -136,7 +136,31 @@ public class userDAO {
 			close();
 		}
 		return -2;
-	}
-	
+	}*/
+	public boolean  selectOneUser(String id , int passWord) {
+	      boolean check = false;
+	      try {
+	         connect();
+	         
+	         String sql = "select * from user_info where user_id = ? and passWord = ? ";
+	         pst = conn.prepareStatement(sql);
+	         
+	         pst.setString(1, id);
+	         pst.setInt(2, passWord);
+	         
+	         rs = pst.executeQuery();
+	         
+	         if(rs.next()) {
+	            
+	            check = true;
+	            
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }
+	      
+	      return check;
+	   }
 	
 }
