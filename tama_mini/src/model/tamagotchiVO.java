@@ -29,7 +29,7 @@ public class tamagotchiVO {
 
 
 
-   public tamagotchiVO(String nick, int lev, String user_id, String start_date, int dif, int energy, int full) {
+   public tamagotchiVO(String nick, int lev, String user_id, String start_date, int dif, int energy, int full, int ex) {
       super();
       this.nick = nick;
       this.lev = lev;
@@ -38,6 +38,7 @@ public class tamagotchiVO {
       this.dif = dif;
       this.energy = energy;
       this.full = full;
+      this.ex = ex;
    }
 
 
