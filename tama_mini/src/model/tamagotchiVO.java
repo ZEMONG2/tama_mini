@@ -6,45 +6,52 @@ public class tamagotchiVO {
 	private int ex;
 	private int lev;
 	private int energy; 
-	private String user_id;
+	private String userId;
 	private String start_date;
 	private String end_date;
+	private int dif;
 	
 	
 	
-	public tamagotchiVO(String nick, int ex, int lev, int energy, String user_id, String start_date) {
+	public tamagotchiVO(String nick, int ex, int lev, int energy, String user_id, String start_date, int dif) {
 		super();
 		this.nick = nick;
 		this.ex = ex;
 		this.lev = lev;
 		this.energy = energy;
-		this.user_id = user_id;
+		this.userId = user_id;
 		this.start_date = start_date;
+		this.dif = dif;
 	}
 	
 
 
-	public tamagotchiVO(String nick, int lev, String user_id, String start_date) {
+	public tamagotchiVO(String nick, int lev, String user_id, String start_date, int dif) {
 		super();
 		this.nick = nick;
 		this.lev = lev;
-		this.user_id = user_id;
+		this.userId = user_id;
 		this.start_date = start_date;
+		this.dif = dif;
 	}
 
 
 
-	public tamagotchiVO(String nick, int lev, String user_id, String start_date, String end_date) {
+	public tamagotchiVO(String nick, int lev, String user_id, String start_date, String end_date, int dif) {
 		super();
 		this.nick = nick;
 		this.lev = lev;
-		this.user_id = user_id;
+		this.userId = user_id;
 		this.start_date = start_date;
 		this.end_date = end_date;
+		this.dif = dif;
 	}
 
 
 
+	public int getDif() {
+		return dif;
+	}
 
 
 	public String getNick() {
@@ -64,7 +71,7 @@ public class tamagotchiVO {
 	}
 
 	public String getUserId() {
-		return user_id;
+		return userId;
 	}
 
 

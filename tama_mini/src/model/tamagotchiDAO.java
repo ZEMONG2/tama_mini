@@ -44,7 +44,7 @@ public class tamagotchiDAO {
 	}
 	
 	//(add)
-	public boolean insertTama(String nick, String user_id) {
+	public boolean insertTama(String nick, String user_id, int dif) {
 
 		boolean check = false;
 		
@@ -52,12 +52,13 @@ public class tamagotchiDAO {
 			connect();
 			 
 			
-			String sql = "insert into tamagotchi_info values (?, 0, 1, 50, ?, sysdate, null)";
+			String sql = "insert into tamagotchi_info values (?, 0, 1, 50, ?, sysdate, null, ?)";
 			
 			pst = conn.prepareStatement(sql);
 			
 			pst.setString(1, nick);
 			pst.setString(2, user_id);
+			pst.setInt(3, dif);
 			
 			
 			int cnt = pst.executeUpdate();
@@ -95,7 +96,8 @@ public class tamagotchiDAO {
 				int energy = rs.getInt("energy");
 				String user_id = rs.getString("user_id");
 				String start_date = rs.getString("start_date");
-				vo = new tamagotchiVO(name, ex, lev, energy, user_id, start_date);
+				int dif = rs.getInt("dif");
+				vo = new tamagotchiVO(name, ex, lev, energy, user_id, start_date, dif);
 			}
 
 		} catch (Exception e) {
@@ -114,7 +116,7 @@ public class tamagotchiDAO {
 		try {
 			connect();
 
-			String sql = "select * from tamagotchi_info where end_date is null";
+			String sql = "select * from tamagotchi_info where end_date is null order by lev desc";
 			pst = conn.prepareStatement(sql);
 			
 			rs = pst.executeQuery();
@@ -122,10 +124,11 @@ public class tamagotchiDAO {
 
 			if (rs.next()) {
 				String name = rs.getString("nick");
-				int lev = rs.getInt("lev");
 				String user_id = rs.getString("user_id");
 				String start_date = rs.getString("start_date");
-				al.add(new tamagotchiVO(name, lev, user_id, start_date));
+				int lev = rs.getInt("lev");
+				int dif = rs.getInt("dif");
+				al.add(new tamagotchiVO(name, lev, user_id, start_date, dif));
 			}
 
 		} catch (Exception e) {
@@ -156,7 +159,8 @@ public class tamagotchiDAO {
 				String user_id = rs.getString("user_id");
 				String start_date = rs.getString("start_date");
 				String end_date = rs.getString("end_date");
-				al.add(new tamagotchiVO(name, lev, user_id, start_date, end_date));
+				int dif = rs.getInt("dif");
+				al.add(new tamagotchiVO(name, lev, user_id, start_date, end_date, dif));
 			}
 
 		} catch (Exception e) {
