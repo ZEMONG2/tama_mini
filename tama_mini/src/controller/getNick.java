@@ -57,4 +57,4 @@ public class getNick {
 		   }
 		   return energy;
 	   }
-}
+	   }

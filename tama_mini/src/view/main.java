@@ -104,25 +104,89 @@ public class main {
                
                if (choose == 1) {
                   System.out.println("Eating");
+                  if(gn.getNickDif(gn.getUserNick(id)) == 1) {
+                  	   sck = tDao.eat(10, 30, gn.getUserNick(id));
+                     }else if(gn.getNickDif(gn.getUserNick(id)) == 2) {
+                  	   sck = tDao.eat(20, 40, gn.getUserNick(id)); 
+                     }else if(gn.getNickDif(gn.getUserNick(id)) == 3) {
+                  	   sck = tDao.eat(30, 50, gn.getUserNick(id));                	                   	                   	   
+                     }
+                     System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
+                     System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));                	   
+                     System.out.println("-------------------------------");
+                  	   System.out.println("complete");
+                     }
+                 if(sck) {
+              	   if(((gn.getNickFull(gn.getUserNick(id))) <= 0) ||
+              			   ((gn.getNickEnergy(gn.getUserNick(id))) <= 0)){
+              		   boolean death = tDao.updateEndDate(gn.getUserNick(id));
+              		   if(death) {
+              			   System.out.println("dead");
+              			   break;
+              		   }
+              		   break;
+              	   }
                } else if (choose == 2) {
                   System.out.println("Playing");
+                  if(gn.getNickDif(gn.getUserNick(id)) == 1) {
+                  	   sck = tDao.game(30, 30, 10, gn.getUserNick(id));
+                     }else if(gn.getNickDif(gn.getUserNick(id)) == 2) {
+                  	   sck = tDao.game(20, 20, 20, gn.getUserNick(id)); 
+                     }else if(gn.getNickDif(gn.getUserNick(id)) == 3) {
+                  	   sck = tDao.game(10, 30, 30, gn.getUserNick(id));                	                   	                   	   
+                     }
+                     System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
+                     System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));                	   
+                     System.out.println("-------------------------------");
+                  	   System.out.println("complete");
+                     }
+                 if(sck) {
+              	   if(((gn.getNickFull(gn.getUserNick(id))) <= 0) ||
+              			   ((gn.getNickEnergy(gn.getUserNick(id))) <= 0)){
+              		   boolean death = tDao.updateEndDate(gn.getUserNick(id));
+              		   if(death) {
+              			   System.out.println("dead");
+              			   break;
+              		   }
+              		   break;
+              	   }
                } else if (choose == 3) {                 
                   System.out.println("Exerciseing");
+                  if(gn.getNickDif(gn.getUserNick(id)) == 1) {
+               	   sck = tDao.run(30, 30, 10, gn.getUserNick(id));
+                  }else if(gn.getNickDif(gn.getUserNick(id)) == 2) {
+               	   sck = tDao.run(20, 20, 20, gn.getUserNick(id)); 
+                  }else if(gn.getNickDif(gn.getUserNick(id)) == 3) {
+               	   sck = tDao.run(10, 30, 30, gn.getUserNick(id));                	                   	                   	   
+                  }
+                  System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
+                  System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));                	   
+                  System.out.println("-------------------------------");
+               	   System.out.println("complete");
+                  }
+              if(sck) {
+           	   if(((gn.getNickFull(gn.getUserNick(id))) <= 0) ||
+           			   ((gn.getNickEnergy(gn.getUserNick(id))) <= 0)){
+           		   boolean death = tDao.updateEndDate(gn.getUserNick(id));
+           		   if(death) {
+           			   System.out.println("dead");
+           			   break;
+           		   }
+           		   break;
+           	   }
                }  else if (choose == 4) {
                    System.out.println("Sleeping");                   
                    if(gn.getNickDif(gn.getUserNick(id)) == 1) {
-                	   sck = tDao.sleep(10, 30, gn.getUserNick(id));
+                	   sck = tDao.sleep(30, 30, gn.getUserNick(id));
                    }else if(gn.getNickDif(gn.getUserNick(id)) == 2) {
-                	   sck = tDao.sleep(20, 20, gn.getUserNick(id)); 
+                	   sck = tDao.sleep(40, 20, gn.getUserNick(id)); 
                    }else if(gn.getNickDif(gn.getUserNick(id)) == 3) {
-                	   sck = tDao.sleep(30, 10, gn.getUserNick(id));                	                   	                   	   
+                	   sck = tDao.sleep(50, 10, gn.getUserNick(id));                	                   	                   	   
                    }
                    System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
                    System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));                	   
                    System.out.println("-------------------------------");
                 	   System.out.println("complete");
-                   }else {
-                	   System.out.println("error");
                    }
                if(sck) {
             	   if(((gn.getNickFull(gn.getUserNick(id))) <= 0) ||
