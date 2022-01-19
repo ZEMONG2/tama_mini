@@ -131,6 +131,7 @@ public class tamagotchiDAO {
             int dif = rs.getInt("dif");
             int energy = rs.getInt("energy");
             int full = rs.getInt("full");
+            int ex = rs.getInt("ex");
             al.add(new tamagotchiVO(name, lev, user_id, start_date, dif, energy, full));
          }
 
