@@ -437,7 +437,7 @@ public class tamagotchiDAO {
 	      try {
 	         connect();
 
-	         String sql = "update tamagotchi_info set energy = energy + ?, full = full + ? where nick = ?";
+	         String sql = "update tamagotchi_info set energy = energy - ?, full = full + ? where nick = ?";
 
 	         pst = conn.prepareStatement(sql);
 

@@ -61,6 +61,7 @@ public class main {
 
 					if (!ch.checkAlived(id)) {
 						System.out.println("create your character.");
+						gn.allNick();
 						System.out.print("<<give me a nickname>> : ");
 						nickname = sc.next();
 
@@ -102,41 +103,41 @@ public class main {
 						if (choose == 1) {
 							System.out.println("Eating");
 							if (gn.getNickDif(gn.getUserNick(id)) == 1) {
-								sck = tDao.eat(10, 30, gn.getUserNick(id));
+								sck = tDao.eat(20, 30, gn.getUserNick(id));
 							} else if (gn.getNickDif(gn.getUserNick(id)) == 2) {
-								sck = tDao.eat(20, 40, gn.getUserNick(id));
+								sck = tDao.eat(10, 40, gn.getUserNick(id));
 							} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
-								sck = tDao.eat(30, 50, gn.getUserNick(id));
+								sck = tDao.eat(5, 50, gn.getUserNick(id));
 							}
 
 						} else if (choose == 2) {
 							System.out.println("Playing");
 							if (gn.getNickDif(gn.getUserNick(id)) == 1) {
-								sck = tDao.game(30, 30, 10, gn.getUserNick(id));
+								sck = tDao.game(20, 20, 5, gn.getUserNick(id));
 							} else if (gn.getNickDif(gn.getUserNick(id)) == 2) {
-								sck = tDao.game(20, 20, 20, gn.getUserNick(id));
+								sck = tDao.game(15, 15, 10, gn.getUserNick(id));
 							} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
-								sck = tDao.game(10, 30, 30, gn.getUserNick(id));
+								sck = tDao.game(10, 10, 20, gn.getUserNick(id));
 							}
 						}
 							else if (choose == 3) {
 								System.out.println("Exerciseing");
 								if (gn.getNickDif(gn.getUserNick(id)) == 1) {
-									sck = tDao.run(30, 30, 10, gn.getUserNick(id));
+									sck = tDao.run(25, 25, 10, gn.getUserNick(id));
 								} else if (gn.getNickDif(gn.getUserNick(id)) == 2) {
-									sck = tDao.run(20, 20, 20, gn.getUserNick(id));
+									sck = tDao.run(20, 20, 15, gn.getUserNick(id));
 								} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
-									sck = tDao.run(10, 30, 30, gn.getUserNick(id));
+									sck = tDao.run(15, 15, 25, gn.getUserNick(id));
 								}
 							}
 								else if (choose == 4) {
 									System.out.println("Sleeping");
 									if (gn.getNickDif(gn.getUserNick(id)) == 1) {
-										sck = tDao.sleep(30, 30, gn.getUserNick(id));
+										sck = tDao.sleep(30, 15, gn.getUserNick(id));
 									} else if (gn.getNickDif(gn.getUserNick(id)) == 2) {
-										sck = tDao.sleep(40, 20, gn.getUserNick(id));
+										sck = tDao.sleep(40, 10, gn.getUserNick(id));
 									} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
-										sck = tDao.sleep(50, 10, gn.getUserNick(id));
+										sck = tDao.sleep(50, 5, gn.getUserNick(id));
 									}
 
 								}
@@ -150,16 +151,10 @@ public class main {
 							else {
 								System.out.println("Sorry you made the wrong choice, please select again");
 							}
-						System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
-						System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));
-						System.out.println("현재 경험치 : " + gn.getNickEx(gn.getUserNick(id)));
-						System.out.println("현재 레벨 : " + gn.getNickLevel(gn.getUserNick(id)));
-						System.out.println("-------------------------------");
-						System.out.println("complete");
-
 						if (sck) {
 							if (gn.getNickEx(gn.getUserNick(id)) >= 100) {
-								tDao.levelUp(id);
+								tDao.levelUp(gn.getUserNick(id));
+								System.out.println("☆☆ level up!!! ☆☆");
 							}
 							if (((gn.getNickFull(gn.getUserNick(id))) <= 0)
 									|| ((gn.getNickEnergy(gn.getUserNick(id))) <= 0)) {
@@ -170,6 +165,13 @@ public class main {
 								}
 								break;
 							}
+						System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
+						System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));
+						System.out.println("현재 경험치 : " + gn.getNickEx(gn.getUserNick(id)));
+						System.out.println("현재 레벨 : " + gn.getNickLevel(gn.getUserNick(id)));
+						System.out.println("-------------------------------");
+						System.out.println("complete");
+
 						}
 
 						
