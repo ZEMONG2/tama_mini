@@ -104,4 +104,17 @@ public class getNick {
 		   }
 		   return energy;
 	   }
+	   
+	   public int getNickLevel(String nick) {
+		   tamagotchiDAO a = new tamagotchiDAO();
+		   ArrayList<tamagotchiVO> al = null;
+		   int lev = 0;
+		   al = a.alivedTamaList();
+		   for(int i=0; i<al.size(); i++) {
+			   if(al.get(i).getNick().equals(nick)) {
+				   lev = al.get(i).getLev();
+			   }   
+		   }
+		   return lev;
+	   }
 	   }
