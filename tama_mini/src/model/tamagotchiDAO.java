@@ -206,6 +206,33 @@ public class tamagotchiDAO {
       return check;
 
 }
+   public boolean levelUp(String nick) {
+	      boolean check = false;
+	      
+	      try {
+	         connect();
+	         
+	         String sql = "update tamagotchi_info set lev = lev + 1, ex = ex - 100 where nick = ?";
+
+	         pst = conn.prepareStatement(sql);
+	         pst.setString(1, nick);
+	         
+	         int cnt = pst.executeUpdate();
+	         
+	         if(cnt>0) {
+	            check = true;
+	         }
+	         
+	      }catch(Exception e){
+	         e.printStackTrace();
+	      }finally {
+	         close();
+	         
+	      }
+	      return check;
+
+   }
+   
    
    public boolean updateTamaEx(int a, String nick) {
 
