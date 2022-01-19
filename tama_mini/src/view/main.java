@@ -100,43 +100,40 @@ public class main {
                System.out.println("Please choose what to do");
                System.out.print("[1] Eat  [2] Play  [3] Exercise [4] sleep [5] logout ---- ");
                int choose = sc.nextInt();
-               System.out.println((gn.getNickFull(gn.getUserNick(id))));
+               boolean sck = false;
                
                if (choose == 1) {
                   System.out.println("Eating");
                } else if (choose == 2) {
                   System.out.println("Playing");
-               } else if (choose == 3) {
-            	   System.out.println(gn.getUserNick(id));                   
+               } else if (choose == 3) {                 
                   System.out.println("Exerciseing");
                }  else if (choose == 4) {
                    System.out.println("Sleeping");                   
-                   boolean sck = false;
                    if(gn.getNickDif(gn.getUserNick(id)) == 1) {
-                	   System.out.println("1");
-                	   sck = tDao.sleep(10, 30, gn.getUserNick(id));                	   
+                	   sck = tDao.sleep(10, 30, gn.getUserNick(id));
                    }else if(gn.getNickDif(gn.getUserNick(id)) == 2) {
-                	   System.out.println("2");
-                	   sck = tDao.sleep(20, 20, gn.getUserNick(id));                	                   	   
+                	   sck = tDao.sleep(20, 20, gn.getUserNick(id)); 
                    }else if(gn.getNickDif(gn.getUserNick(id)) == 3) {
-                	   System.out.println("3");
                 	   sck = tDao.sleep(30, 10, gn.getUserNick(id));                	                   	                   	   
                    }
+                   System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
+                   System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));                	   
                    System.out.println("-------------------------------");
-                   if(sck) {
-                	   if(((gn.getNickFull(gn.getUserNick(id))) <= 0) ||
-                		((gn.getNickEnergy(gn.getUserNick(id))) <= 0)){
-                		   boolean death = tDao.updateEndDate(gn.getUserNick(id));
-                		   if(death) {
-                			   System.out.println("dead");
-                			   break;
-                		   }
-                		   break;
-                	   } 		   
-                	   System.out.println("good");
+                	   System.out.println("complete");
                    }else {
                 	   System.out.println("error");
                    }
+               if(sck) {
+            	   if(((gn.getNickFull(gn.getUserNick(id))) <= 0) ||
+            			   ((gn.getNickEnergy(gn.getUserNick(id))) <= 0)){
+            		   boolean death = tDao.updateEndDate(gn.getUserNick(id));
+            		   if(death) {
+            			   System.out.println("dead");
+            			   break;
+            		   }
+            		   break;
+            	   } 		   
                 }  else if (choose == 5) {
                   System.out.println("Logout complete");
                   break;
