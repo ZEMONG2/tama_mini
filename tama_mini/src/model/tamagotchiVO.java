@@ -13,7 +13,6 @@ public class tamagotchiVO {
    private int full;
    
    
-   
    public tamagotchiVO(String nick, int ex, int lev, int energy, String user_id, String start_date, int dif, int full) {
       super();
       this.nick = nick;
@@ -30,13 +29,15 @@ public class tamagotchiVO {
 
 
 
-   public tamagotchiVO(String nick, int lev, String user_id, String start_date, int dif) {
+   public tamagotchiVO(String nick, int lev, String user_id, String start_date, int dif, int energy, int full) {
       super();
       this.nick = nick;
       this.lev = lev;
       this.userId = user_id;
       this.start_date = start_date;
       this.dif = dif;
+      this.energy = energy;
+      this.full = full;
    }
 
 

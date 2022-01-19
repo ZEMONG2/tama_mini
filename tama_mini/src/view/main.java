@@ -3,19 +3,22 @@ package view;
 import java.util.Scanner;
 
 import controller.check;
+import controller.getNick;
 import controller.rank;
 import model.tamagotchiDAO;
+import model.tamagotchiVO;
 import model.userDAO;
 
 public class main {
    public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
       userDAO uDao = new userDAO();
-
+      
       tamagotchiDAO tDao = new tamagotchiDAO();
       
       check ch = new check();
       rank rk = new rank();
+      getNick gn = new getNick();
 
       System.out.println("=====TAMAGOTCHI GAME START=====");
 
@@ -92,18 +95,49 @@ public class main {
                }
                System.out.println("===========================");
                
+               
                while(true) {
                System.out.println("Please choose what to do");
-               System.out.print("[1] Eat  [2] Play  [3] Exercise [4] logout ---- ");
+               System.out.print("[1] Eat  [2] Play  [3] Exercise [4] sleep [5] logout ---- ");
                int choose = sc.nextInt();
+               System.out.println((gn.getNickFull(gn.getUserNick(id))));
                
                if (choose == 1) {
                   System.out.println("Eating");
                } else if (choose == 2) {
                   System.out.println("Playing");
                } else if (choose == 3) {
+            	   System.out.println(gn.getUserNick(id));                   
                   System.out.println("Exerciseing");
                }  else if (choose == 4) {
+                   System.out.println("Sleeping");                   
+                   boolean sck = false;
+                   if(gn.getNickDif(gn.getUserNick(id)) == 1) {
+                	   System.out.println("1");
+                	   sck = tDao.sleep(10, 30, gn.getUserNick(id));                	   
+                   }else if(gn.getNickDif(gn.getUserNick(id)) == 2) {
+                	   System.out.println("2");
+                	   sck = tDao.sleep(20, 20, gn.getUserNick(id));                	                   	   
+                   }else if(gn.getNickDif(gn.getUserNick(id)) == 3) {
+                	   System.out.println("3");
+                	   sck = tDao.sleep(30, 10, gn.getUserNick(id));                	                   	                   	   
+                   }
+                   System.out.println("-------------------------------");
+                   if(sck) {
+                	   if(((gn.getNickFull(gn.getUserNick(id))) <= 0) ||
+                		((gn.getNickEnergy(gn.getUserNick(id))) <= 0)){
+                		   boolean death = tDao.updateEndDate(gn.getUserNick(id));
+                		   if(death) {
+                			   System.out.println("dead");
+                			   break;
+                		   }
+                		   break;
+                	   } 		   
+                	   System.out.println("good");
+                   }else {
+                	   System.out.println("error");
+                   }
+                }  else if (choose == 5) {
                   System.out.println("Logout complete");
                   break;
                } else {

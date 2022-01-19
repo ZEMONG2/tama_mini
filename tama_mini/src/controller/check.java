@@ -21,6 +21,7 @@ public class check {
    }
    
    
+   
    public boolean checkDeath(String user_id) {
       tamagotchiDAO a = new tamagotchiDAO();
       ArrayList<tamagotchiVO> al = null;

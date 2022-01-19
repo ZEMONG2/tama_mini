@@ -129,7 +129,9 @@ public class tamagotchiDAO {
             String start_date = rs.getString("start_date");
             int lev = rs.getInt("lev");
             int dif = rs.getInt("dif");
-            al.add(new tamagotchiVO(name, lev, user_id, start_date, dif));
+            int energy = rs.getInt("energy");
+            int full = rs.getInt("full");
+            al.add(new tamagotchiVO(name, lev, user_id, start_date, dif, energy, full));
          }
 
       } catch (Exception e) {
@@ -290,6 +292,148 @@ public class tamagotchiDAO {
 
 }
    
-   
+   public boolean sleep(int energy, int full, String nick) {
 
-}
+	      boolean check = false;
+
+	      try {
+	         connect();
+
+	         String sql = "update tamagotchi_info set energy = energy + ?, full = full - ? where nick = ?";
+
+	         pst = conn.prepareStatement(sql);
+
+	         pst.setInt(1, energy);
+	         pst.setInt(2, full);
+	         pst.setString(3, nick);
+
+	         int cnt = pst.executeUpdate();
+
+	         if (cnt > 0) { // 추가 성공
+	            check = true;
+	         } else { // 추가 실패
+	            check = false;
+	         }
+
+	      } catch (Exception e) { // ClassNotFoundException 만 처리가능
+
+	         e.printStackTrace();// 개발중에 마니 사용
+	         System.out.println("지금은 준비중입니다.");
+
+	      } finally {
+
+	         close();
+	      }
+	      return check;
+	   }
+
+	   public boolean run(int energy, int full, int ex, String nick) {
+
+	      boolean check = false;
+
+	      try {
+	         connect();
+
+	         String sql = "update tamagotchi_info set energy = energy - ?, full = full - ? ,ex = ex + ? where nick = ?";
+
+	         pst = conn.prepareStatement(sql);
+
+	         pst.setInt(1, energy);
+	         pst.setInt(2, full);
+	         pst.setInt(3, ex);
+	         pst.setString(4, nick);
+
+	         int cnt = pst.executeUpdate();
+
+	         if (cnt > 0) { // 추가 성공
+	            check = true;
+	         } else { // 추가 실패
+	            check = false;
+	         }
+
+	      } catch (Exception e) { // ClassNotFoundException 만 처리가능
+
+	         e.printStackTrace();// 개발중에 마니 사용
+	         System.out.println("지금은 준비중입니다.");
+
+	      } finally {
+
+	         close();
+	      }
+	      return check;
+
+	   }
+
+	   public boolean game(int energy, int full, int ex, String nick) {
+
+	      boolean check = false;
+
+	      try {
+	         connect();
+
+	         String sql = "update tamagotchi_info set energy = energy - ?, full = full - ?, ex = ex + ? where nick = ?";
+
+	         pst = conn.prepareStatement(sql);
+
+	         pst.setInt(1, energy);
+	         pst.setInt(2, full);
+	         pst.setInt(3, ex);
+	         pst.setString(4, nick);
+
+	         int cnt = pst.executeUpdate();
+
+	         if (cnt > 0) { // 추가 성공
+	            check = true;
+	         } else { // 추가 실패
+	            check = false;
+	         }
+
+	         // 여기에다가 리턴 적으면 안됨
+
+	         // catch : try내에서 예외상황이 발생한 경우 catch문으로 들어오게됨
+	      } catch (Exception e) {
+	         e.printStackTrace();// 개발중에 마니 사용
+	         System.out.println("지금은 준비중입니다.");
+
+	      } finally {
+
+	         close();
+	      }
+	      return check;
+	   }
+
+	   public boolean eat(int energy, int full, String nick) {
+
+	      boolean check = false;
+
+	      try {
+	         connect();
+
+	         String sql = "update tamagotchi_info set energy = energy + ?, full = full + ? where nick = ?";
+
+	         pst = conn.prepareStatement(sql);
+
+	         pst.setInt(1, energy);
+	         pst.setInt(2, full);
+	         pst.setString(3, nick);
+
+	         int cnt = pst.executeUpdate();
+
+	         if (cnt > 0) { // 추가 성공
+	            check = true;
+	         } else { // 추가 실패
+	            check = false;
+	         }
+
+	      } catch (Exception e) { // ClassNotFoundException 만 처리가능
+
+	         e.printStackTrace();// 개발중에 마니 사용
+	         System.out.println("지금은 준비중입니다.");
+
+	      } finally {
+
+	         close();
+	      }
+	      return check;
+	   }
+	}
