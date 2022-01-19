@@ -79,6 +79,19 @@ public class getNick {
 		   return full;
 	   }
 	   
+	   public int getNickEx(String nick) {
+		   tamagotchiDAO a = new tamagotchiDAO();
+		   ArrayList<tamagotchiVO> al = null;
+		   int ex = 0;
+		   al = a.alivedTamaList();
+		   for(int i=0; i<al.size(); i++) {
+			   if(al.get(i).getNick().equals(nick)) {
+				   ex = al.get(i).getEx();
+			   }   
+		   }
+		   return ex;
+	   }
+	   
 	   public int getNickEnergy(String nick) {
 		   tamagotchiDAO a = new tamagotchiDAO();
 		   ArrayList<tamagotchiVO> al = null;
