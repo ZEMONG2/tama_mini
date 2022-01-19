@@ -256,7 +256,6 @@ public class tamagotchiDAO {
          e.printStackTrace();
       }finally {
          close();
-         
       }
       return check;
 
