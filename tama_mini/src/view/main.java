@@ -59,52 +59,77 @@ public class main {
 			}
 
 		}
-
+		int dif = 0;
 		String nickname;
 		int nan2do;
-
-		System.out.println("<<give me a nickname>>");
-		nickname = sc.next();
-
-		boolean check = tDao.insertTama(nickname, id);
+		int nickStart = 0;
+		System.out.println("[1] Strat with new nickname  [2] Start with a saved nickname");
+		
+		if(nickStart == 1) {
+			System.out.println("<<Please, give me a nickname>>");
+			nickname = sc.next();
+			System.out.println("==================================");
+			boolean check = tDao.insertTama(nickname, id, dif);
+		}else if(nickStart ==2) {
+			System.out.println("<<Please write your saved nickname>>");
+			
+			
+			
+		}
+		
+		
 
 		
+		
+		
+		
+		
+		
+		
+
+		int choose = 0;
 			System.out.println("<<Please select a difficulty level>>");
+			while(true) {
 			System.out.println("[1] high [2] middle [3] low");
 			nan2do = sc.nextInt();
 
 			if (nan2do == 1) { // 난이도 상
-				System.out.println("");
-
+				System.out.println("High difficulty is selected");
+				break;
 			} else if (nan2do == 2) { // 난이도 중
-				System.out.println("");
-
+				System.out.println("Middle difficulty is selected");
+				break;
 			} else if (nan2do == 3) { // 난이도 하
-				System.out.println("");
+				System.out.println("Low difficulty is selected");
+				break;
 			} else {
 				System.out.println("Sorry you made the wrong choice, please select again");
+				System.out.println("======================================================");
 			}
-
-		
+			}
 	
-	
-			int choose = 0;
+			
 		
-
+			while(true) {
 			System.out.println("Please choose what to do");
 			System.out.println("[1] Eat  [2] Play  [3] Exercise");
 			choose = sc.nextInt();
 
 			if (choose == 1) {
-				System.out.println("Eating");
-			} else if (choose == 2) {
-				System.out.println("Playing");
+				System.out.println("Eating"); //먹이주기
+				break;
+			} else if (choose == 2) { 
+				System.out.println("Playing"); // 놀아주기
+				break;
 			} else if (choose == 3) {
-				System.out.println("Exerciseing");
+				System.out.println("Exerciseing"); // 운동하기
+				break;
 			} else {
 				System.out.println("Sorry you made the wrong choice, please select again");
+				System.out.println("======================================================");
 			}
-
+			}
 		
 	
-}}
+}
+	}
