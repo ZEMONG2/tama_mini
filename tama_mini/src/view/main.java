@@ -90,17 +90,17 @@ public class main {
 		int choose = 0;
 			System.out.println("<<Please select a difficulty level>>");
 			while(true) {
-			System.out.println("[1] high [2] middle [3] low");
+			System.out.println("[1] hard [2] normal [3] easy");
 			nan2do = sc.nextInt();
 
 			if (nan2do == 1) { // 난이도 상
-				System.out.println("High difficulty is selected");
+				System.out.println("Hard difficulty is selected");
 				break;
 			} else if (nan2do == 2) { // 난이도 중
-				System.out.println("Middle difficulty is selected");
+				System.out.println("Normal difficulty is selected");
 				break;
 			} else if (nan2do == 3) { // 난이도 하
-				System.out.println("Low difficulty is selected");
+				System.out.println("Easy difficulty is selected");
 				break;
 			} else {
 				System.out.println("Sorry you made the wrong choice, please select again");
