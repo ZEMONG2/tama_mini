@@ -119,38 +119,33 @@ public class main {
 							} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
 								sck = tDao.game(10, 10, 20, gn.getUserNick(id));
 							}
+						} else if (choose == 3) {
+							System.out.println("Exerciseing");
+							if (gn.getNickDif(gn.getUserNick(id)) == 1) {
+								sck = tDao.run(25, 25, 10, gn.getUserNick(id));
+							} else if (gn.getNickDif(gn.getUserNick(id)) == 2) {
+								sck = tDao.run(20, 20, 15, gn.getUserNick(id));
+							} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
+								sck = tDao.run(15, 15, 25, gn.getUserNick(id));
+							}
+						} else if (choose == 4) {
+							System.out.println("Sleeping");
+							if (gn.getNickDif(gn.getUserNick(id)) == 1) {
+								sck = tDao.sleep(30, 15, gn.getUserNick(id));
+							} else if (gn.getNickDif(gn.getUserNick(id)) == 2) {
+								sck = tDao.sleep(40, 10, gn.getUserNick(id));
+							} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
+								sck = tDao.sleep(50, 5, gn.getUserNick(id));
+							}
+
+						} else if (choose == 5) {
+							System.out.println("Logout complete");
+							break;
 						}
-							else if (choose == 3) {
-								System.out.println("Exerciseing");
-								if (gn.getNickDif(gn.getUserNick(id)) == 1) {
-									sck = tDao.run(25, 25, 10, gn.getUserNick(id));
-								} else if (gn.getNickDif(gn.getUserNick(id)) == 2) {
-									sck = tDao.run(20, 20, 15, gn.getUserNick(id));
-								} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
-									sck = tDao.run(15, 15, 25, gn.getUserNick(id));
-								}
-							}
-								else if (choose == 4) {
-									System.out.println("Sleeping");
-									if (gn.getNickDif(gn.getUserNick(id)) == 1) {
-										sck = tDao.sleep(30, 15, gn.getUserNick(id));
-									} else if (gn.getNickDif(gn.getUserNick(id)) == 2) {
-										sck = tDao.sleep(40, 10, gn.getUserNick(id));
-									} else if (gn.getNickDif(gn.getUserNick(id)) == 3) {
-										sck = tDao.sleep(50, 5, gn.getUserNick(id));
-									}
 
-								}
-
-							
-							else if (choose == 5) {
-								System.out.println("Logout complete");
-								break;
-							}
-
-							else {
-								System.out.println("Sorry you made the wrong choice, please select again");
-							}
+						else {
+							System.out.println("Sorry you made the wrong choice, please select again");
+						}
 						if (sck) {
 							if (gn.getNickEx(gn.getUserNick(id)) >= 100) {
 								tDao.levelUp(gn.getUserNick(id));
@@ -165,16 +160,14 @@ public class main {
 								}
 								break;
 							}
-						System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
-						System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));
-						System.out.println("현재 경험치 : " + gn.getNickEx(gn.getUserNick(id)));
-						System.out.println("현재 레벨 : " + gn.getNickLevel(gn.getUserNick(id)));
-						System.out.println("-------------------------------");
-						System.out.println("complete");
-
+							System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
+							System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));
+							System.out.println("현재 경험치 : " + gn.getNickEx(gn.getUserNick(id)));
+							System.out.println("현재 레벨 : " + gn.getNickLevel(gn.getUserNick(id)));
+							System.out.println("-------------------------------");
+							System.out.println("complete");
 						}
 
-						
 					}
 
 				} else {
@@ -226,6 +219,6 @@ public class main {
 
 		}
 
-}
+	}
 
 }

@@ -12,8 +12,6 @@ public class userVO {
 		this.passWord = passWord;
 
 	}
-	
-	
 
 	public String getId() {
 		return id;

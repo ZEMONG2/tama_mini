@@ -12,7 +12,7 @@ public class userDAO {
 	Connection conn = null;
 	PreparedStatement pst = null;
 	ResultSet rs = null;
- 
+
 	public void connect() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -25,72 +25,71 @@ public class userDAO {
 			e.printStackTrace();
 		}
 	}
+
 	public void close() {
 		try {
-			if(rs != null) {
-			rs.close();
-						
+			if (rs != null) {
+				rs.close();
+
 			}
-			if(pst != null) {
-			pst.close();
+			if (pst != null) {
+				pst.close();
 			}
-			if(conn != null) {
-			conn.close();
+			if (conn != null) {
+				conn.close();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	
+
 	}
+
 	public boolean insertUser(String id, int passWord) {
-		
+
 		boolean check = false;
 
-		try { 
+		try {
 			connect();
-			
+
 			String sql = "insert into user_info values(?, ?)";
 
-			
 			pst = conn.prepareStatement(sql);
 
-			
 			pst.setString(1, id);
 			pst.setInt(2, passWord);
 
-			
 			int cnt = pst.executeUpdate();
 
 			if (cnt > 0) {
 				check = true;
-			} else { 
+			} else {
 				check = false;
 			}
 
-			
-		} catch (Exception e) { 
-			
+		} catch (Exception e) {
+
 			System.out.println("Coming soon");
-		
+
 		} finally {
-		
+
 			close();
 		}
 		return check;
 	}
+
 	public ArrayList<userVO> selectUser() {
 		ArrayList<userVO> al = new ArrayList<userVO>();
 
 		try {
 
 			connect();
-			
+
 			String sql = "select * from user_info";
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
-			
+
 			while (rs.next()) {
-				int num = rs.getInt(1); 
+				int num = rs.getInt(1);
 				String id = rs.getString("id");
 				int passWord = rs.getInt("passWord");
 
@@ -106,61 +105,31 @@ public class userDAO {
 		}
 		return al;
 	}
-	
-	
-	/*public int login(String id, String passWord) {
 
+	public boolean selectOneUser(String id, int passWord) {
+		boolean check = false;
 		try {
-
 			connect();
 
-			String sql = "select passWord from user_info where id = ?";
+			String sql = "select * from user_info where user_id = ? and passWord = ? ";
 			pst = conn.prepareStatement(sql);
+
 			pst.setString(1, id);
+			pst.setInt(2, passWord);
+
 			rs = pst.executeQuery();
 
 			if (rs.next()) {
-				if(rs.getString(1).contentEquals(passWord)) {
-					return 1;
-				}else {
-					return 0;
-				}
+
+				check = true;
+
 			}
-			return -1;
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-
-		} finally {
-
-			close();
 		}
-		return -2;
-	}*/
-	public boolean  selectOneUser(String id , int passWord) {
-	      boolean check = false;
-	      try {
-	         connect();
-	         
-	         String sql = "select * from user_info where user_id = ? and passWord = ? ";
-	         pst = conn.prepareStatement(sql);
-	         
-	         pst.setString(1, id);
-	         pst.setInt(2, passWord);
-	         
-	         rs = pst.executeQuery();
-	         
-	         if(rs.next()) {
-	            
-	            check = true;
-	            
-	         }
-	         
-	      } catch (SQLException e) {
-	         e.printStackTrace();
-	      }
-	      
-	      return check;
-	   }
-	
+
+		return check;
+	}
+
 }
