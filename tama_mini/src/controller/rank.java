@@ -25,7 +25,7 @@ public class rank {
       
       public void rankLived() {
          tamagotchiDAO a = new tamagotchiDAO();
-         ArrayList<tamagotchiVO> al = a.livedTamaList();
+         ArrayList<tamagotchiVO> al = a.alivedTamaList();
          if (al.size() != 0) {
             System.out.println("=================================================");
             System.out.println("』』』』』』』』』』』』』』Ranking_(Lived)』』』』』』』』』』』』』』");

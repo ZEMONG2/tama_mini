@@ -52,7 +52,7 @@ public class tamagotchiDAO {
          connect();
           
          
-         String sql = "insert into tamagotchi_info values (?, 0, 1, 50, ?, sysdate, null, ?)";
+         String sql = "insert into tamagotchi_info values (?, 0, 1, 50, ?, sysdate, null, ?, 50)";
          
          pst = conn.prepareStatement(sql);
          
@@ -97,7 +97,8 @@ public class tamagotchiDAO {
             String user_id = rs.getString("user_id");
             String start_date = rs.getString("start_date");
             int dif = rs.getInt("dif");
-            vo = new tamagotchiVO(name, ex, lev, energy, user_id, start_date, dif);
+            int full = rs.getInt("full");
+            vo = new tamagotchiVO(name, ex, lev, energy, user_id, start_date, dif, full);
          }
 
       } catch (Exception e) {
@@ -110,7 +111,7 @@ public class tamagotchiDAO {
       return vo;
    }
    
-   public ArrayList<tamagotchiVO> livedTamaList(){
+   public ArrayList<tamagotchiVO> alivedTamaList(){
       ArrayList<tamagotchiVO> al = new ArrayList<tamagotchiVO>();
 
       try {

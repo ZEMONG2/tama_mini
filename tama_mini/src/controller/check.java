@@ -7,17 +7,17 @@ import model.tamagotchiVO;
 
 public class check {
    
-   public boolean checkLived(String user_id) {
+   public boolean checkAlived(String user_id) {
       tamagotchiDAO a = new tamagotchiDAO();
       ArrayList<tamagotchiVO> al = null;
-      al = a.livedTamaList();
-      boolean lived = false;
+      al = a.alivedTamaList();
+      boolean alived = false;
       for(int i=0; i<al.size(); i++) {
          if(al.get(i).getUserId().equals(user_id)) {
-            lived = true;
+            alived = true;
          }   
       }
-      return lived;
+      return alived;
    }
    
    
@@ -34,17 +34,17 @@ public class check {
       return death;
    }
    
-   public boolean checkLived2(String nick) {
+   public boolean checkAlived2(String nick) {
       tamagotchiDAO a = new tamagotchiDAO();
       ArrayList<tamagotchiVO> al = null;
-      al = a.livedTamaList();
-      boolean lived = false;
+      al = a.alivedTamaList();
+      boolean alived = false;
       for(int i=0; i<al.size(); i++) {
          if(al.get(i).getNick().equals(nick)) {
-            lived = true;
+            alived = true;
          }   
       }
-      return lived;
+      return alived;
    }
    
    

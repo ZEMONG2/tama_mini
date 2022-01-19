@@ -54,7 +54,7 @@ public class main {
                String nickname;
                int dif;
                
-               if(!ch.checkLived(id)) {
+               if(!ch.checkAlived(id)) {
                 System.out.print("create your character.");
                System.out.print("<<give me a nickname>> : ");
                nickname = sc.next();
@@ -123,7 +123,7 @@ public class main {
                String nk = sc.next();
                if(ch.checkDeath2(nk)) {
                   System.out.println(nk+" : dead");
-               }else if(ch.checkLived2(nk)) {
+               }else if(ch.checkAlived2(nk)) {
                   System.out.println(nk+" : alive");                  
                }else {
                   System.out.println("error : invalid value");                                    
