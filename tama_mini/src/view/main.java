@@ -66,17 +66,17 @@ public class main {
 						nickname = sc.next();
 
 						System.out.println("<<Please select a difficulty level>>");
-						System.out.print("[1] high [2] middle [3] low ---- ");
+						System.out.print("[1] Hard [2] Normal [3] Easy ---- ");
 						dif = sc.nextInt();
 
 						if (dif == 1) { // 난이도 상
-							System.out.println("level : hard");
+							System.out.println("level : Hard");
 
 						} else if (dif == 2) { // 난이도 중
-							System.out.println("level : middle");
+							System.out.println("level : Normal");
 
 						} else if (dif == 3) { // 난이도 하
-							System.out.println("level : low");
+							System.out.println("level : Easy");
 						} else {
 							System.out.println("Sorry you made the wrong choice, please select again");
 						}
