@@ -1,7 +1,10 @@
 package view;
 
 import java.util.Scanner;
-
+import java.util.ArrayList;
+import controller.mp3Con;
+import javazoom.jl.player.MP3Player;
+import model.musicVO;
 import controller.check;
 import controller.getNick;
 import controller.rank;
@@ -15,13 +18,19 @@ public class main {
 		userDAO uDao = new userDAO();
 
 		tamagotchiDAO tDao = new tamagotchiDAO();
+		MP3Player mp3 = new MP3Player();
+		mp3Con con = new mp3Con();
+		musicVO music1 = new musicVO("C:\\Users\\smhrd\\Desktop\\ÀÚ¹Ù\\music\\Battle vs Champion.mp3");
+		ArrayList<musicVO> List = new ArrayList<musicVO>();
+		List.add(music1);
+		int index = 0;
 
 		check ch = new check();
 		rank rk = new rank();
 		getNick gn = new getNick();
 
 		System.out.println("=====TAMAGOTCHI GAME START=====");
-
+		con.Play(List, index);
 		String id = null;
 
 		while (true) {
@@ -227,6 +236,7 @@ public class main {
 
 			} else if (select == 4) {
 				System.out.println("See you again!");
+				con.Stop();
 				break;
 			} else {
 				System.out.println("error : invalid value");
