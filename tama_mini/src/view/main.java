@@ -20,7 +20,7 @@ public class main {
 		tamagotchiDAO tDao = new tamagotchiDAO();
 		MP3Player mp3 = new MP3Player();
 		mp3Con con = new mp3Con();
-		musicVO music1 = new musicVO("C:\\Users\\smhrd\\Desktop\\music (2)\\Battle vs Champion.mp3");
+		musicVO music1 = new musicVO("C:\\Users\\smhrd\\Desktop\\자바\\music\\Battle vs Champion.mp3");
 		ArrayList<musicVO> List = new ArrayList<musicVO>();
 		List.add(music1);
 		int index = 0;
