@@ -29,13 +29,13 @@ public class main {
 		rank rk = new rank();
 		getNick gn = new getNick();
 
-		System.out.println("#####      ##    ##   ##  #######            #####   ########    ##    ######   ######## ");
+		System.out.println(" #####      ##    ##   ##  #######            #####   ########    ##    ######   ######## ");
 		System.out.println("##   ##    ####   ### ###   ##  ##           ##   ##  #  ##  #   ####    ##  ##  #  ##  # ");
 		System.out.println("##        ##  ##  #######   ##               ##          ##     ##  ##   ##  ##     ##    ");
 		System.out.println("##        ######  ## # ##   ####              #####      ##     ######   #####      ##    ");
 		System.out.println("##  ###   ##  ##  ##   ##   ##                    ##     ##     ##  ##   ####       ##    ");
 		System.out.println("##   ##   ##  ##  ##   ##   ##  ##           ##   ##     ##     ##  ##   ## ##      ##    ");
-		System.out.println("#####    ##  ##  ##   ##  #######            #####     ####    ##  ##  ###  ##    ####   ");
+		System.out.println(" #####    ##  ##  ##   ##  #######            #####     ####    ##  ##  ###  ##    ####   ");
 
 		con.Play(List, index);
 		String id = null;
