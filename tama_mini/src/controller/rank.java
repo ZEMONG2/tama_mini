@@ -26,7 +26,7 @@ public class rank {
 						al.get(i).getLev(), al.get(i).getUserId(), al.get(i).getStart_date(), al.get(i).getEnd_date(),
 						al.get(i).getDif());
 			}
-			System.out.println("=======================================================================");
+			System.out.println("==================================================================================");
 		}
 	}
 
@@ -48,7 +48,8 @@ public class rank {
 				System.out.printf("%d\t%.7s\t%s\t%.7s\t%.10s\t%s\n", (i + 1), al.get(i).getNick(), al.get(i).getLev(),
 						al.get(i).getUserId(), al.get(i).getStart_date(), al.get(i).getDif());
 			}
-			System.out.println("================================================================");
+			System.out.println("=====================================================================");
+
 		}
 
 	}
