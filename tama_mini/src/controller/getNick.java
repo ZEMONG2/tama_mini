@@ -52,6 +52,19 @@ public class getNick {
 		}
 		return nick;
 	}
+	
+	public String getRankNick(String user_id) {
+		tamagotchiDAO a = new tamagotchiDAO();
+		ArrayList<tamagotchiVO> al = null;
+		String nick = "";
+		al = a.rankList();
+		for (int i = 0; i < al.size(); i++) {
+			if (al.get(i).getUserId().equals(user_id)) {
+				nick = al.get(i).getNick();
+			}
+		}
+		return nick;
+	}
 
 	public int getNickDif(String nick) {
 		tamagotchiDAO a = new tamagotchiDAO();
