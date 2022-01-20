@@ -112,7 +112,7 @@ public class main {
 
 					while (true) {
 						System.out.println();
-						System.out.println("-------------------------------------");
+						System.out.println("------------------------------------------------");
 						if(((gn.getNickFull(gn.getUserNick(id))) <= 30)
 								&& ((gn.getNickEnergy(gn.getUserNick(id))) <= 30)) {
 							System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⠶⠶⠶⠶⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
@@ -218,6 +218,8 @@ public class main {
 						int choose = sc.nextInt();
 						boolean sck = false;
 
+						System.out.println("=================================================");
+						System.out.println();
 						
 						if (choose == 1) {
 							
@@ -365,6 +367,8 @@ public class main {
 						else {
 							System.out.println("Sorry you made the wrong choice, please select again");
 						}
+						System.out.println("------------------------------------------------");
+						System.out.println();
 						if (sck) {
 							if (gn.getNickEx(gn.getUserNick(id)) >= 100) {
 								tDao.levelUp(gn.getUserNick(id));
@@ -412,7 +416,7 @@ public class main {
 									System.out.println("	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣗⣰⣄⣱⣤⣤⣼⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
 									System.out.println("	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠛⠛⠛⠛⠛⠋⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
 									System.out.println("	⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
-									System.out.println("dead");
+									System.out.println(gn.getUserNick(id)+" is dead");
 									break;
 								}
 								break;
