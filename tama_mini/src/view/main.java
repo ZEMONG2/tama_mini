@@ -95,11 +95,31 @@ public class main {
 					System.out.println("===========================");
 
 					while (true) {
+						System.out.println();
+						System.out.println("-------------------------------------");
+						if(((gn.getNickFull(gn.getUserNick(id))) <= 30)
+								&& ((gn.getNickEnergy(gn.getUserNick(id))) <= 30)) {
+							System.out.println(gn.getUserNick(id)+" is hungry and tired (Warning!!!)");
+						}else if(((gn.getNickFull(gn.getUserNick(id))) <= 30)) {
+							System.out.println(gn.getUserNick(id)+" is hungry (Warning!!!)");								
+						}else if(((gn.getNickEnergy(gn.getUserNick(id))) <= 30)) {
+							System.out.println(gn.getUserNick(id)+" is tired (Warning!!!)");								
+						}else {
+							System.out.println(gn.getUserNick(id)+" is happy");																
+						}
+						System.out.println("-------------------------------------");
+						System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
+						System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));
+						System.out.println("현재 경험치 : " + gn.getNickEx(gn.getUserNick(id)));
+						System.out.println("현재 레벨 : " + gn.getNickLevel(gn.getUserNick(id)));
+						System.out.println("-------------------------------------");
+						System.out.println();
 						System.out.println("Please choose what to do");
 						System.out.print("[1] Eat  [2] Play  [3] Exercise [4] sleep [5] logout ---- ");
 						int choose = sc.nextInt();
 						boolean sck = false;
 
+						
 						if (choose == 1) {
 							System.out.println("Eating");
 							if (gn.getNickDif(gn.getUserNick(id)) == 1) {
@@ -160,11 +180,7 @@ public class main {
 								}
 								break;
 							}
-							System.out.println("현재 에너지 : " + gn.getNickEnergy(gn.getUserNick(id)));
-							System.out.println("현재 포만감 : " + gn.getNickFull(gn.getUserNick(id)));
-							System.out.println("현재 경험치 : " + gn.getNickEx(gn.getUserNick(id)));
-							System.out.println("현재 레벨 : " + gn.getNickLevel(gn.getUserNick(id)));
-							System.out.println("-------------------------------");
+	
 							System.out.println("complete");
 						}
 
