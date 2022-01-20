@@ -29,7 +29,14 @@ public class main {
 		rank rk = new rank();
 		getNick gn = new getNick();
 
-		System.out.println("=====TAMAGOTCHI GAME START=====");
+		System.out.println("#####      ##    ##   ##  #######            #####   ########    ##    ######   ######## ");
+		System.out.println("##   ##    ####   ### ###   ##  ##           ##   ##  #  ##  #   ####    ##  ##  #  ##  # ");
+		System.out.println("##        ##  ##  #######   ##               ##          ##     ##  ##   ##  ##     ##    ");
+		System.out.println("##        ######  ## # ##   ####              #####      ##     ######   #####      ##    ");
+		System.out.println("##  ###   ##  ##  ##   ##   ##                    ##     ##     ##  ##   ####       ##    ");
+		System.out.println("##   ##   ##  ##  ##   ##   ##  ##           ##   ##     ##     ##  ##   ## ##      ##    ");
+		System.out.println("#####    ##  ##  ##   ##  #######            #####     ####    ##  ##  ###  ##    ####   ");
+
 		con.Play(List, index);
 		String id = null;
 
@@ -343,6 +350,14 @@ public class main {
 							}
 
 						} else if (choose == 5) {
+							System.out.println("######  ######## ########      ##    ##  #######  ##     ##          ###     ######      ###    #### ##    ## ");
+							System.out.println("##    ## ##       ##             ##  ##  ##     ## ##     ##         ## ##   ##    ##    ## ##    ##  ###   ## ");
+							System.out.println("##       ##       ##              ####   ##     ## ##     ##        ##   ##  ##         ##   ##   ##  ####  ## ");
+							System.out.println(" ######  ######   ######           ##    ##     ## ##     ##       ##     ## ##   #### ##     ##  ##  ## ## ## ");
+							System.out.println("      ## ##       ##               ##    ##     ## ##     ##       ######### ##    ##  #########  ##  ##  #### ");
+							System.out.println("##    ## ##       ##               ##    ##     ## ##     ##       ##     ## ##    ##  ##     ##  ##  ##   ### ");
+							System.out.println(" ######  ######## ########         ##     #######   #######        ##     ##  ######   ##     ## #### ##    ## ");
+
 							System.out.println("Logout complete");
 							break;
 						}
@@ -449,7 +464,13 @@ public class main {
 				}
 
 			} else if (select == 4) {
-				System.out.println("See you again!");
+				System.out.println("######  ######## ########      ##    ##  #######  ##     ##          ###     ######      ###    #### ##    ## ");
+				System.out.println("##    ## ##       ##             ##  ##  ##     ## ##     ##         ## ##   ##    ##    ## ##    ##  ###   ## ");
+				System.out.println("##       ##       ##              ####   ##     ## ##     ##        ##   ##  ##         ##   ##   ##  ####  ## ");
+				System.out.println(" ######  ######   ######           ##    ##     ## ##     ##       ##     ## ##   #### ##     ##  ##  ## ## ## ");
+				System.out.println("      ## ##       ##               ##    ##     ## ##     ##       ######### ##    ##  #########  ##  ##  #### ");
+				System.out.println("##    ## ##       ##               ##    ##     ## ##     ##       ##     ## ##    ##  ##     ##  ##  ##   ### ");
+				System.out.println(" ######  ######## ########         ##     #######   #######        ##     ##  ######   ##     ## #### ##    ## ");
 				con.Stop();
 				break;
 			} else {
